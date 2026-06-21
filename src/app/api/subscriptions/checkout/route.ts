@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
-import { stripe, SUBSCRIPTION_PRICE_ID, getOrCreateStripeCustomer } from "@/lib/stripe";
+import { getStripe, SUBSCRIPTION_PRICE_ID, getOrCreateStripeCustomer } from "@/lib/stripe";
 
 export async function POST(req: NextRequest) {
   const session = await auth();
@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
     session.user.name
   );
 
+  const stripe = getStripe();
   const checkout = await stripe.checkout.sessions.create({
     customer: customerId,
     mode: "subscription",
