@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Plus, Pencil, Film } from "lucide-react";
 import { DeleteSeriesButton } from "./delete-button";
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Series — Admin" };
 
 const statusLabel: Record<string, string> = {

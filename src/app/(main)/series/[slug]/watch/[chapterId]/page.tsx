@@ -12,6 +12,8 @@ interface Props {
   params: Promise<{ slug: string; chapterId: string }>;
 }
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { chapterId } = await params;
   const chapter = await prisma.chapter.findUnique({

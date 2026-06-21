@@ -5,6 +5,7 @@ import { SeriesGrid } from "@/components/series/series-grid";
 import Link from "next/link";
 import { BookOpen, Clock } from "lucide-react";
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Mi Biblioteca" };
 
 export default async function LibraryPage() {

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 async function getData(userId?: string) {
   const [featured, allSeries, continueWatching] = await Promise.all([

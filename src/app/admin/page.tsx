@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Crown, Tv, Film } from "lucide-react";
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin Dashboard" };
 
 async function getMetrics() {

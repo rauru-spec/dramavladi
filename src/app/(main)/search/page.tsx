@@ -6,6 +6,7 @@ interface Props {
   searchParams: Promise<{ q?: string; genre?: string }>;
 }
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Explorar" };
 
 export default async function SearchPage({ searchParams }: Props) {

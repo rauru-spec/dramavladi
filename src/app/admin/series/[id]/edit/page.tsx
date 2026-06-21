@@ -7,6 +7,7 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Editar serie — Admin" };
 
 export default async function EditSeriesPage({ params }: Props) {
