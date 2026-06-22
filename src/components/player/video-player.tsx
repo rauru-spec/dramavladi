@@ -84,9 +84,18 @@ export function VideoPlayer({ chapterId, isFree, onEnded, onProgress, initialTim
   }
 
   if (error) {
+    const isComingSoon = error.includes("no configurado") || error.includes("no disponible");
     return (
-      <div className="aspect-video w-full rounded-xl bg-[var(--muted)] flex items-center justify-center">
-        <p className="text-[var(--muted-foreground)] text-sm">{error}</p>
+      <div className="aspect-video w-full rounded-xl bg-[var(--muted)] flex flex-col items-center justify-center gap-3 px-6 text-center">
+        <p className="text-2xl">{isComingSoon ? "🎬" : "⚠️"}</p>
+        <p className="text-[var(--foreground)] text-sm font-medium">
+          {isComingSoon ? "Video próximamente" : "No se pudo cargar el video"}
+        </p>
+        <p className="text-[var(--muted-foreground)] text-xs max-w-xs">
+          {isComingSoon
+            ? "Este capítulo estará disponible muy pronto."
+            : error}
+        </p>
       </div>
     );
   }

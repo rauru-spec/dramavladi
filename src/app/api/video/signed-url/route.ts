@@ -30,12 +30,14 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Video no disponible" }, { status: 404 });
   }
 
+  if (!isBunnyConfigured()) {
+    return NextResponse.json({ error: "Proveedor de video no configurado aún" }, { status: 503 });
+  }
+
   // Track view
   await prisma.chapterView.create({ data: { chapterId } }).catch(() => {});
 
-  const url = isBunnyConfigured()
-    ? getSignedVideoUrl(chapter.videoId)
-    : getBunnyEmbedUrl(chapter.videoId);
+  const url = getSignedVideoUrl(chapter.videoId);
 
   return NextResponse.json({ url });
 }
